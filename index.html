@@ -1,49 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-    <title>Livestream Camera</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #000000; /* Background color changed to black */
-            color: #ffffff; /* Text color changed to white for better visibility */
-        }
-
-        h1 {
-            color: #ffffff; /* Header color changed to white */
-            padding: 20px 0;
-        }
-
-        #video-container {
-            width: 80%;  /* Adjusted width for better display */
-            margin: auto;
-        }
-
-        /* Optional: Add some responsive styling for smaller screens */
-        @media (max-width: 600px) {
-            #video-container {
-                width: 95%;
+    <head>
+        <title>Livestream Camera</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                background-color: #000000;
             }
-        }
-    </style>
-</head>
-<body>
-    <div id="video-container">
-        <h1>IP Camera View</h1>
-        <img id="live-image" src="http://114.179.127.11:8010/mjpg/video.mjpg" alt="IP Camera Stream" width="100%" />
-    </div>
 
-    <script>
-        function reloadImage() {
-            const img = document.getElementById('live-image');
-            img.src = "http://114.179.127.11:8010/mjpg/video.mjpg?" + new Date().getTime();
-        }
+            h1 {
+                color: #333;
+                padding: 20px 0;
+            }
 
-        // Reload the image every 2 seconds (adjust as needed)
-        setInterval(reloadImage, 2000); // Reduced interval for more frequent updates
-    </script>
-</body>
+            #video-container {
+
+                width: 100%; /* Adjust as needed */
+                margin: auto;
+            }
+
+            /* Optional: Add some responsive styling for smaller screens */
+            @media (max-width: 600px) {
+                #video-container {
+                    width: 95%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="video-container">
+            <!-- Replace this with the actual URL of your IP camera's livestream -->
+            <img src="http://173.255.111.12/mjpg/video.mjpg" alt="Livestream from IP Camera" width="100%" />
+            <img src="http://114.179.127.11:8010/mjpg/video.mjpg" alt="Livestream from IP Camera" width="100%" />
+            <!--  OR, if your camera supports it, you can use the video tag:
+      <video width="100%" controls autoplay loop muted>
+        <source src="YOUR_IP_CAMERA_STREAM_URL" type="video/mp4">  <- or appropriate video type
+        Your browser does not support the video tag.
+      </video>
+    -->
+        </div>
+    </body>
 </html>
